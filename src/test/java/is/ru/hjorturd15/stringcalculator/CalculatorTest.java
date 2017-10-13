@@ -1,9 +1,14 @@
 package is.ru.hjorturd15.stringcalculator;
 
 import static org.junit.Assert.assertEquals;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class CalculatorTest {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void testEmptyString() {
@@ -21,11 +26,6 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testNegativeNumber() {
-        assertEquals(-5, Calculator.add("-5"));
-    }
-
-    @Test
     public void testMultipleNumbers() {
         assertEquals(10, Calculator.add("2,3,5"));
     }
@@ -39,4 +39,12 @@ public class CalculatorTest {
     public void testNewLineAndCommaSeparators() {
         assertEquals(10, Calculator.add("2,3\n5"));
     }
+
+    @Test
+    public void testNegativeNumberExceptionMessage() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Negatives not allowed: -5");
+        Calculator.add("-5");
+    }
+
 }

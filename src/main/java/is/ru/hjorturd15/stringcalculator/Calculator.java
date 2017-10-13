@@ -12,7 +12,12 @@ public class Calculator {
     }
 
     public static int toInt(String number) {
-        return Integer.parseInt(number);
+        int parsedInt = Integer.parseInt(number);
+
+        if (parsedInt < 0)
+            throw new IllegalArgumentException("Negatives not allowed: " + parsedInt);
+
+        return parsedInt;
     }
 
     public static int sum(String numbers[]) {

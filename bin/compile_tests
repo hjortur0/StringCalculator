@@ -1,3 +1,3 @@
 #!/bin/bash
 
-javac -classpath "classes/;src/test/resources/junit-4.12.jar" src/test/java/is/ru/hjorturd15/stringcalculator/CalculatorTest.java -d classes
+javac -classpath "classes/;src/test/resources/junit-4.12.jar;src/test/resources/hamcrest-core-1.3.jar" src/test/java/is/ru/hjorturd15/stringcalculator/CalculatorTest.java -d classes
