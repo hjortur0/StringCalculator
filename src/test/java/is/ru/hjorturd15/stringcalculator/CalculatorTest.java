@@ -29,4 +29,9 @@ public class CalculatorTest {
     public void testMultipleNumbers() {
         assertEquals(10, Calculator.add("2,3,5"));
     }
+
+    @Test
+    public void testMultipleDigitNumbers() {
+        assertEquals(12345, Calculator.add("10000,2000,300,40,5"));
+    }
 }
