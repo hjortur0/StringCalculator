@@ -24,4 +24,9 @@ public class CalculatorTest {
     public void testNegativeNumber() {
         assertEquals(-5, Calculator.add("-5"));
     }
+
+    @Test
+    public void testMultipleNumbers() {
+        assertEquals(10, Calculator.add("2,3,5"));
+    }
 }
