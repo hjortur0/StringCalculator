@@ -11,7 +11,7 @@ public class Calculator {
             return toInt(numbers[0]) + toInt(numbers[1]);
         }
 
-        return 1;
+        return toInt(text);
     }
 
     public static int toInt(String number) {
