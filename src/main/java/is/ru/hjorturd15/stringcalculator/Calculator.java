@@ -4,15 +4,11 @@ public class Calculator {
     
     public static int add(String text) {
         if (text.isEmpty())
-            return 0;
+          return 0;
+        
+        String numbers[] = text.split(",");
 
-        if (text.contains(",")) {
-            String numbers[] = text.split(",");
-
-            return sum(numbers);
-        }
-
-        return toInt(text);
+        return sum(numbers);
     }
 
     public static int toInt(String number) {
