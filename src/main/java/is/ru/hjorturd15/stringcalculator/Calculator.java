@@ -3,7 +3,10 @@ package is.ru.hjorturd15.stringcalculator;
 public class Calculator {
     
     public static int add(String text) {
-        return 0;
+        if (text.isEmpty())
+            return 0;
+
+        return 1;
     }
 
 }
