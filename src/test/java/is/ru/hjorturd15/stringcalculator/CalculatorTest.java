@@ -32,7 +32,7 @@ public class CalculatorTest {
 
     @Test
     public void testMultipleDigitNumbers() {
-        assertEquals(12345, Calculator.add("10000,2000,300,40,5"));
+        assertEquals(345, Calculator.add("300,40,5"));
     }
 
     @Test
@@ -52,6 +52,11 @@ public class CalculatorTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Negatives not allowed: -5,-10,-15");
         Calculator.add("5,-5,10,-10,20,-15");
+    }
+
+    @Test
+    public void testOverOneThousand() {
+        assertEquals(2, Calculator.add("1001,2"));
     }
 
 }

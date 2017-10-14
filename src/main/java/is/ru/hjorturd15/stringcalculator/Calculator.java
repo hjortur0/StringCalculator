@@ -20,7 +20,9 @@ public class Calculator {
         int sum = 0;
 
         for (String number : numbers) {
-            sum += toInt(number);
+            int integer = toInt(number);
+            if (integer <= 1000)
+                sum += integer;
         }
 
         return sum;
