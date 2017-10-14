@@ -47,4 +47,11 @@ public class CalculatorTest {
         Calculator.add("-5");
     }
 
+    @Test
+    public void testNegativeNumbersExceptionMessage() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Negatives not allowed: -5,-10,-15");
+        Calculator.add("5,-5,10,-10,20,-15");
+    }
+
 }

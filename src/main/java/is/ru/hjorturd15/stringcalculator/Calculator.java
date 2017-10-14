@@ -7,17 +7,13 @@ public class Calculator {
           return 0;
         
         String numbers[] = text.split("[\n,]");
+        checkNegativeNumbers(numbers);
 
         return sum(numbers);
     }
 
     public static int toInt(String number) {
-        int parsedInt = Integer.parseInt(number);
-
-        if (parsedInt < 0)
-            throw new IllegalArgumentException("Negatives not allowed: " + parsedInt);
-
-        return parsedInt;
+        return Integer.parseInt(number);
     }
 
     public static int sum(String numbers[]) {
@@ -28,5 +24,20 @@ public class Calculator {
         }
 
         return sum;
+    }
+
+    public static void checkNegativeNumbers(String numbers[]) {
+        String negativeNumbers = "";
+
+        for (String number : numbers) {
+            if (toInt(number) < 0)
+                negativeNumbers += number + ",";
+        }
+
+        if (!negativeNumbers.isEmpty()) {
+            negativeNumbers = negativeNumbers.substring(0, negativeNumbers.length() - 1);
+            throw new IllegalArgumentException("Negatives not allowed: " + negativeNumbers);
+        }
+
     }
 }
