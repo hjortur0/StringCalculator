@@ -6,10 +6,10 @@ public class Calculator {
         if (text.isEmpty())
           return 0;
         
-        String delimiters = getDelimiter(text);
+        String delimiter = getDelimiter(text);
         text = removeDelimiter(text);
 
-        String numbers[] = text.split("[" + delimiters + "]");
+        String numbers[] = text.split(delimiter);
         checkNegativeNumbers(numbers);
 
         return sum(numbers);
@@ -48,14 +48,14 @@ public class Calculator {
 
     public static String getDelimiter(String text) {
         if (text.startsWith("//"))
-            return String.valueOf(text.charAt(2));
+            return text.substring(2, text.indexOf("\n"));
 
-        return "\n,";
+        return "[\n,]";
     }
 
     public static String removeDelimiter(String text) {
         if (text.startsWith("//"))
-            return text.substring(4);
+            return text.substring(text.indexOf("\n") + 1);
 
         return text;
     }

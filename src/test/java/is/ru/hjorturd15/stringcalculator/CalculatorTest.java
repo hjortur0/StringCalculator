@@ -63,4 +63,9 @@ public class CalculatorTest {
     public void testSingleCharacterDelimiter() {
         assertEquals(10, Calculator.add("//;\n7;3"));
     }
+
+    @Test
+    public void testMultipleCharacterDelimiters() {
+        assertEquals(10, Calculator.add("//abc\n7abc3"));
+    }
 }
