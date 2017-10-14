@@ -59,4 +59,8 @@ public class CalculatorTest {
         assertEquals(2, Calculator.add("1001,2"));
     }
 
+    @Test
+    public void testSingleCharacterDelimiter() {
+        assertEquals(10, Calculator.add("//;\n7;3"));
+    }
 }
